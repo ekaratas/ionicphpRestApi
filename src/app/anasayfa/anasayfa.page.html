@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"> 
+      <ion-button (click)="ekle()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+        Yeni
+      </ion-button>
+    </ion-buttons>
+  <ion-title>Anasayfa</ion-title>
+  <ion-buttons slot="end"> 
+    <ion-button (click)="logout()">
+      <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Yenilemek için aşağı kaydırınız"
+      refreshingSpinner="circles"
+      refreshingText="Yenileniyor...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let veri of veriler">
+    <ion-item-sliding [id]="'slidingItem'+veri.feed_id">
+    <ion-item>
+      <ion-card-content>
+        <p>{{veri.feed}}</p>
+        <span>{{zamanDonustur(veri.created)}}</span>
+        <br>
+        <span>User: {{veri.username}}</span>
+          
+      </ion-card-content>
+      <ion-badge color="secondary" slot="end">{{veri.feed_id}}</ion-badge>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option color="warning" (click)="duzenle(veri.feed, veri.feed_id)">
+        <ion-icon slot="start" name="pencil"></ion-icon>
+        Düzenle
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="sil(veri.feed_id)">
+        <ion-icon slot="start" name="trash"></ion-icon>
+        Sil
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ionicphpRestApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

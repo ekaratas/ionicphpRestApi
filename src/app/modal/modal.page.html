@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar *ngIf="duzeltilen">
+    <ion-title>Mesajı Düzenle ({{id}})</ion-title>
+    <ion-buttons slot="end"> 
+      <ion-button (click)="kapat()">
+        Kapat
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="eklenen">
+    <ion-title>Mesaj Ekle</ion-title>
+    <ion-buttons slot="end"> 
+      <ion-button (click)="kapat()">
+        Kapat
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="duzeltilen">
+  <ion-list>
+    <ion-item>
+      <ion-label>Mesaj:</ion-label>
+      <ion-input clearInput [(ngModel)]="duzeltilen.feed"></ion-input>
+
+    </ion-item>
+    <ion-button (click)="duzelt()" expand="full" >
+      Düzenle
+    </ion-button>
+  </ion-list>
+</div>
+  <div *ngIf="eklenen">
+  <ion-list>
+    <ion-item>
+      <ion-label>Mesaj:</ion-label>
+      <ion-input clearInput [(ngModel)]="eklenen.feed"></ion-input>
+
+    </ion-item>
+    <ion-button (click)="ekle()" expand="full" >
+      Mesaj Ekle
+    </ion-button>
+  </ion-list>
+</div>
+</ion-content>

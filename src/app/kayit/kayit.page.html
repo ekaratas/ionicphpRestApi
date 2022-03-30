@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kayıt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+    <ion-label fixed>Ad</ion-label>
+    <ion-input type=text [(ngModel)]="userData.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Eposta</ion-label>
+      <ion-input type=text [(ngModel)]="userData.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Kullanıcı Adı</ion-label>
+        <ion-input type=text [(ngModel)]="userData.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>Şifre</ion-label>
+          <ion-input type=password [(ngModel)]="userData.password"></ion-input>
+          </ion-item>
+
+          <ion-button [disabled]="userData.name =='' || userData.email =='' || userData.username =='' || userData.password =='' "(click)="kayit()" expand="full" color="success">
+            Kayıt Ol
+          </ion-button>
+
+  </ion-list>
+  <ion-button fill="clear" [routerLink]="['/home']" >Giriş Yap</ion-button>
+
+</ion-content>

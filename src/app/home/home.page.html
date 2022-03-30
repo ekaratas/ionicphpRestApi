@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic PHP Rest Örnek
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item>
+    <ion-label fixed>Kullanıcı Adı</ion-label>
+    <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>Şifre</ion-label>
+    <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button [disabled]="userData.username =='' || userData.password ==''" (click)="giris()" expand="full" color="success">
+    Giriş Yap
+  </ion-button>
+</ion-list>
+<ion-button fill="clear" [routerLink]="['/kayit']" >Kayıt Ol</ion-button>
+</ion-content>
